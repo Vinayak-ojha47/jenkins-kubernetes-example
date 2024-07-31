@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
       - name: nodejs-app
-        image: "vinayakojha47/nodejsapp:${IMAGE_TAG}"
+        image: "vinayakojha47/nodejsapp:${env.BUILD_NUMBER}"
         ports:
           - containerPort: 3000
 ---
