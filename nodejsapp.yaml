@@ -18,7 +18,8 @@ spec:
     spec:
       containers:
       - name: nodejs-app
-        image: "vinayakojha47/nodejsapp:8"
+        image: "vinayakojha47/nodejsapp:latest"
+        imagePullPolicy: Always
         ports:
           - containerPort: 3000
 ---
