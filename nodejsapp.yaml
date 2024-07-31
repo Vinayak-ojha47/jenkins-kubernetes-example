@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
       - name: nodejs-app
-        image: "vinayakojha47/nodejsapp-1.0:latest"
+        image: "vinayakojha47/nodejsapp-1.33"
         ports:
           - containerPort: 3000
 ---
