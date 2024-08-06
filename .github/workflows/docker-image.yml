@@ -20,3 +20,13 @@ jobs:
       run: docker build . --file Dockerfile --tag vinayakojha47/githubactions:latest
     - name: Push Docker image
       run: docker push vinayakojha47/githubactions:latest
+    - name: Set up Kubeconfig
+      env:
+        KUBECONFIG: ${{ secrets.KUBECONFIG }}
+      run: |
+        echo "${{ secrets.KUBECONFIG }}" > $HOME/.kube/config
+
+    - name: Deploy to Kubernetes
+      run: |
+        kubectl apply -f nodejsapp.yaml
+        kubectl rollout restart deployment nodejs-app
