@@ -23,8 +23,10 @@ jobs:
       env:
         DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
         DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
-      run: |
-        docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
+        
+    - name: docker login
+      run: echo "${{ secrets.DOCKER_HUB_PASSWORD }}" | docker login --username "${{ secrets.DOCKER_HUB_USERNAME }}" --password-stdin
+ 
 
     - name: Push Docker image
       run: docker push vinayakojha47/my-image-name:${{ env.IMAGE_TAG }}
