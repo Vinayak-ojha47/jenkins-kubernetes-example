@@ -18,7 +18,7 @@ jobs:
       run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
 
     - name: Log in to Docker Hub
-      run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login --username vinayakojha47 --password-stdin
+      run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u vinayakojha47 --password-stdin
 
     - name: Push Docker image
       run: docker push vinayakojha47/my-image-name:${{ env.IMAGE_TAG }}
