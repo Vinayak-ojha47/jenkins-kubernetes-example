@@ -13,7 +13,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    
+    - uses: actions/checkout@v4
+    - name: Log in to Docker Hub
+      run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u vinayakojha47 --password-stdin
+    - name: Build the Docker image
+      run: docker build . --file Dockerfile --tag vinayakojha47/githubactions:latest
         
     - name: Set up Kubeconfig
       env:
