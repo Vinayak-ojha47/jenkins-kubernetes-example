@@ -20,6 +20,12 @@ jobs:
       run: docker build . --file Dockerfile --tag vinayakojha47/githubactions:latest
     - name: Push Docker image
       run: docker push vinayakojha47/githubactions:latest
+
+    - name: Set up kubectl
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y kubectl
+        
     - name: Set up Kubeconfig
       env:
         KUBECONFIG: ${{ secrets.KUBECONFIG }}
