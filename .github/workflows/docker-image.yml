@@ -14,11 +14,9 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
-    - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag my-image-name:latest
-
     - name: Log in to Docker Hub
       run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u vinayakojha47 --password-stdin
-
+    - name: Build the Docker image
+      run: docker build . --file Dockerfile --tag githubactions:latest
     - name: Push Docker image
-      run: docker push vinayakojha47/my-image-name:latest
+      run: docker push vinayakojha47/githubactions:latest
