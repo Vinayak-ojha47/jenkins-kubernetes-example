@@ -7,17 +7,15 @@ on:
     branches: [ "main" ]
 
 jobs:
+
   build:
+
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v3
-
+    - uses: actions/checkout@v4
     - name: Build the Docker image
-      run: |
-        IMAGE_TAG=$(date +%s)
-        docker build . --file Dockerfile --tag vinayakojha47/my-image-name:$IMAGE_TAG
-        echo IMAGE_TAG=$IMAGE_TAG >> $GITHUB_ENV
+      run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
 
     - name: Log in to Docker Hub
       run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login --username vinayakojha47 --password-stdin
