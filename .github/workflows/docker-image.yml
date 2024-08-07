@@ -28,5 +28,5 @@ jobs:
 
     - name: Deploy to Kubernetes
       run: |
-        kubectl get deployments
+        kubectl --insecure-skip-tls-verify=true get pods
   
