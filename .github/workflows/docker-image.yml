@@ -29,5 +29,5 @@ jobs:
         
     - name: Deploy to Kubernetes
       run: |
-        kubectl --insecure-skip-tls-verify=true get pods -n vinayak
+        kubectl --insecure-skip-tls-verify=true get pods
   
