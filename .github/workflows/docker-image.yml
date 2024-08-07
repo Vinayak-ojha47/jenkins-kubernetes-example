@@ -23,10 +23,10 @@ jobs:
       env:
         KUBECONFIG: ${{ secrets.KUBECONFIG }}
       run: |
-        mkdir $HOME/.kube/
-        echo "${{ secrets.KUBECONFIG }}" > $HOME/.kube/config
+
+        export KUBECONFIG="${{ secrets.KUBECONFIG }}"
 
     - name: Deploy to Kubernetes
       run: |
-        kubectl --insecure-skip-tls-verify=true get pods
+        kubectl --insecure-skip-tls-verify=true get pods -n vinayak
   
