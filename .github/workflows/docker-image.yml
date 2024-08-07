@@ -22,6 +22,10 @@ jobs:
     - name: Set up Kubeconfig
       env:
         KUBECONFIG: ${{ secrets.KUBECONFIG }}
+      run: |
+        echo $HOME
+        mkdir -p $HOME/.kube
+        echo "${{ secrets.KUBECONFIG }}" > $HOME/.kube/config 
         
     - name: Deploy to Kubernetes
       run: |
