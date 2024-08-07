@@ -21,11 +21,6 @@ jobs:
     - name: push to dockerhub
       run: docker push vinayakojha47/githubactions:latest
       
-  deploy:
-
-    runs-on: self-hosted
-    steps:
-    
     - name: Set up Kubeconfig
       env:
         KUBECONFIG: ${{ secrets.KUBECONFIG }}
