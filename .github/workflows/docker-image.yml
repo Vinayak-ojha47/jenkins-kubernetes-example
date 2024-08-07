@@ -22,10 +22,7 @@ jobs:
     - name: Set up Kubeconfig
       env:
         KUBECONFIG: ${{ secrets.KUBECONFIG }}
-      run: |
-
-        export KUBECONFIG="${{ secrets.KUBECONFIG }}"
-
+        
     - name: Deploy to Kubernetes
       run: |
         kubectl --insecure-skip-tls-verify=true get pods -n vinayak
